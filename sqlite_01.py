@@ -1,3 +1,5 @@
+# Ref: https://www.programcreek.com/python
+
 #1.- Creación de una base de datos sqlite desde Python
 #2.- Creación de una tabla
 #3.- Inserción de registros
@@ -170,8 +172,10 @@ def select_all_tasks(conn):
     :return:
     """
     cur = conn.cursor()
-    cur.execute("SELECT * FROM tasks")
 
+    cur.execute("SELECT * FROM tasks")
+    desc = cur.description
+    print(desc)
     rows = cur.fetchall()
 
     for row in rows:
@@ -203,7 +207,7 @@ def main_sel():
         print("2. Consulta todas las tareas")
         select_all_tasks(conn) 
 
-#main_sel()
+main_sel()
 
 """
 To update data in a table from a Python program, you follow these steps:
@@ -281,4 +285,4 @@ def main_del():
         delete_task(conn, 2);
         # delete_all_tasks(conn);
 
-main_del()
+#main_del()
